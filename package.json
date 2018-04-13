@@ -1,0 +1,55 @@
+{
+  "name": "jest-coverage-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
+    "babel-env": "^2.4.1",
+    "babel-plugin-istanbul": "^4.1.6",
+    "cross-env": "^5.1.4",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "jest": "^22.4.3",
+    "mocha": "^5.1.0",
+    "nyc": "^11.6.0",
+    "react": "^16.3.1",
+    "react-dom": "^16.3.1"
+  },
+  "scripts": {
+    "jest": "cross-env NODE_ENV=test jest --config=jest.config.json",
+    "nyc": "cross-env NODE_ENV=test nyc mocha __test__/**/*",
+    "babel": "babel src --out-dir lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OverseePublic/jest-coverage-test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OverseePublic/jest-coverage-test/issues"
+  },
+  "homepage": "https://github.com/OverseePublic/jest-coverage-test#readme",
+  "nyc": {
+    "require": [
+      "babel-register",
+      "./setup-enzyme.js"
+    ],
+    "include": [
+      "src/**/*"
+    ],
+    "exclude": [
+      "**/*.spec.js"
+    ],
+    "reporter": [
+      "lcov",
+      "html",
+      "text-summary"
+    ],
+    "sourceMap": false,
+    "instrument": false
+  }
+}
