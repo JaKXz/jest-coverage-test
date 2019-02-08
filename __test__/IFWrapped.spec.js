@@ -1,3 +1,4 @@
+import React from 'react';
 import IFWrapped from '../src/IFWrapped';
 import {shallow} from 'enzyme';
 

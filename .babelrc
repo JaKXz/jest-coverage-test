@@ -1,20 +1,11 @@
 {
-  "presets": [
-    "env",
-    "react",
-    "stage-0"
-  ],
+  "presets": ["env", "react"],
   "plugins": [
-    "istanbul",
-    "transform-class-properties",
-    "transform-decorators",
-    "transform-react-constant-elements",
-    "transform-react-inline-elements",
     "jsx-control-statements"
   ],
   "env": {
     "test": {
-      "plugins": ["istanbul", "jsx-control-statements"]
+      "plugins": ["istanbul"]
     }
   }
 }

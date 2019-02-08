@@ -7,8 +7,12 @@
   "devDependencies": {
     "babel": "^6.23.0",
     "babel-cli": "^6.26.0",
-    "babel-env": "^2.4.1",
     "babel-plugin-istanbul": "^4.1.6",
+    "babel-plugin-jsx-control-statements": "^3.0.0",
+    "babel-plugin-transform-react-inline-elements": "^6.22.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-register": "^6.26.0",
     "cross-env": "^5.1.4",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
@@ -20,7 +24,7 @@
   },
   "scripts": {
     "jest": "cross-env NODE_ENV=test jest --config=jest.config.json",
-    "nyc": "cross-env NODE_ENV=test nyc mocha __test__/**/*",
+    "nyc": "cross-env NODE_ENV=test nyc mocha --require babel-register --require ./setup-enzyme.js __test__/**/*",
     "babel": "babel src --out-dir lib"
   },
   "repository": {
@@ -35,14 +39,10 @@
   "homepage": "https://github.com/OverseePublic/jest-coverage-test#readme",
   "nyc": {
     "require": [
-      "babel-register",
-      "./setup-enzyme.js"
+      "babel-register"
     ],
     "include": [
       "src/**/*"
-    ],
-    "exclude": [
-      "**/*.spec.js"
     ],
     "reporter": [
       "lcov",
